@@ -74,7 +74,7 @@ namespace lemon {
     // The MapBase of the Map which imlements the core regisitry function.
     typedef typename Notifier::ObserverBase Parent;
 
-    typedef std::allocator<Value> Allocator;
+    typedef std::allocator_traits<Value> Allocator;
 
   public:
 
