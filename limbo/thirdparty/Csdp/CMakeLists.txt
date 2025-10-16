@@ -56,7 +56,7 @@ set(CSDP_COMPILE_DEFINITIONS NOSHORTS)
 add_library(sdp STATIC ${CSDP_SOURCES})
 target_compile_definitions(sdp PRIVATE ${CSDP_COMPILE_DEFINITIONS})
 if(INSTALL_LIMBO)
-    install(TARGETS sdp DESTINATION lib)
+    install(TARGETS sdp DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(LIBS sdp ${OpenBLAS_LIBNAME} m ${CMAKE_THREAD_LIBS_INIT} gfortran)

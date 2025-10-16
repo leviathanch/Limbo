@@ -27,6 +27,6 @@ if(LIBS)
 endif(LIBS)
 
 if(INSTALL_LIMBO)
-    install(TARGETS gdsdb DESTINATION lib)
+    install(TARGETS gdsdb DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${HEADERS} DESTINATION include/limbo/parsers/gdsii/gdsdb)
 endif(INSTALL_LIMBO)

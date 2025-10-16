@@ -51,7 +51,7 @@ add_library(lef_objlib OBJECT ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
 add_library(lef STATIC $<TARGET_OBJECTS:lef_objlib>)
 #add_library(lef STATIC ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
 if(INSTALL_LIMBO)
-    install(TARGETS lef DESTINATION lib)
+    install(TARGETS lef DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${LEF_HEADERS} DESTINATION include/limbo/thirdparty/lefdef/5.8/lef/lef)
 endif(INSTALL_LIMBO)
 
@@ -77,7 +77,7 @@ set(CLEF_SOURCES
 
 add_library(clef STATIC ${CLEF_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS clef DESTINATION lib)
+    install(TARGETS clef DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(LEFZLIB_SOURCES 
@@ -86,7 +86,7 @@ set(LEFZLIB_SOURCES
 
 add_library(lefzlib STATIC ${LEFZLIB_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS lefzlib DESTINATION lib)
+    install(TARGETS lefzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(CLEFZLIB_SOURCES 
@@ -95,7 +95,7 @@ set(CLEFZLIB_SOURCES
 
 add_library(clefzlib STATIC ${CLEFZLIB_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS clefzlib DESTINATION lib)
+    install(TARGETS clefzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(LEFRW_SOURCES 

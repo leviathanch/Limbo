@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.7.0)
 project(Limbo)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "Prefix prepended to install directories")
+set(LIMBO_LIBDIR "${LIB_INSTALL_DIR}/limbo")
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, Debug|Release" FORCE)

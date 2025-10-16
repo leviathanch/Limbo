@@ -24,6 +24,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS verilogparser DESTINATION lib)
+    install(TARGETS verilogparser DESTINATION ${LIMBO_LIBDIR})
     install(FILES VerilogDataBase.h VerilogDriver.h DESTINATION include/limbo/parsers/verilog/bison)
 endif(INSTALL_LIMBO)

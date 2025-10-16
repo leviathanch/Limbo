@@ -21,6 +21,6 @@ if(LIBS)
 endif(LIBS)
 
 if(INSTALL_LIMBO)
-    install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+    install(TARGETS ${PROJECT_NAME} DESTINATION ${LIMBO_LIBDIR})
     install(DIRECTORY include/dlx DESTINATION include/limbo/thirdparty)
 endif(INSTALL_LIMBO)

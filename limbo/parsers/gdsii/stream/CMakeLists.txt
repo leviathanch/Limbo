@@ -18,6 +18,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS gdsparser DESTINATION lib)
+    install(TARGETS gdsparser DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${HEADERS} DESTINATION include/limbo/parsers/gdsii/stream)
 endif(INSTALL_LIMBO)

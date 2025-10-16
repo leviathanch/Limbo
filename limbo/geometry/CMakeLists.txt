@@ -13,7 +13,7 @@ if(LIBS)
     target_link_libraries(GeoBoostPolygonApi PRIVATE ${LIBS})
 endif(LIBS)
 if(INSTALL_LIMBO)
-    install(TARGETS GeoBoostPolygonApi DESTINATION lib)
+    install(TARGETS GeoBoostPolygonApi DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 file(GLOB SOURCES

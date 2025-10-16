@@ -64,7 +64,7 @@ add_library(def_objlib OBJECT ${DEF_SOURCES} ${BISON_DefParser_OUTPUTS})
 add_library(def STATIC STATIC $<TARGET_OBJECTS:def_objlib>)
 #add_library(def STATIC ${DEF_SOURCES} ${BISON_DefParser_OUTPUTS})
 if(INSTALL_LIMBO)
-    install(TARGETS def DESTINATION lib)
+    install(TARGETS def DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${DEF_HEADERS} DESTINATION include/limbo/thirdparty/lefdef/5.8/def/def)
 endif(INSTALL_LIMBO)
 
@@ -101,7 +101,7 @@ set(CDEF_SOURCES
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_library(cdef STATIC ${CDEF_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS cdef DESTINATION lib)
+    install(TARGETS cdef DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(DEFZLIB_SOURCES 
@@ -110,7 +110,7 @@ set(DEFZLIB_SOURCES
 
 add_library(defzlib STATIC ${DEFZLIB_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS defzlib DESTINATION lib)
+    install(TARGETS defzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(CDEFZLIB_SOURCES 
@@ -119,7 +119,7 @@ set(CDEFZLIB_SOURCES
 
 add_library(cdefzlib STATIC ${CDEFZLIB_SOURCES})
 if(INSTALL_LIMBO)
-    install(TARGETS cdefzlib DESTINATION lib)
+    install(TARGETS cdefzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(DEFRW_SOURCES 
