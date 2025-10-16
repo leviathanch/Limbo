@@ -48,14 +48,14 @@ BISON_TARGET(LefParser lef/lef.y ${CMAKE_CURRENT_BINARY_DIR}/lef.tab.cpp
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_library(lef_objlib OBJECT ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
-add_library(lef STATIC $<TARGET_OBJECTS:lef_objlib>)
-#add_library(lef STATIC ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
+add_library(lef SHARED $<TARGET_OBJECTS:lef_objlib>)
+#add_library(lef SHARED ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
 if(INSTALL_LIMBO)
     install(TARGETS lef DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${LEF_HEADERS} DESTINATION include/limbo/thirdparty/lefdef/5.8/lef/lef)
 endif(INSTALL_LIMBO)
 
-set(CLEF_SOURCES 
+set(CLEF_SOURCES
     clef/xlefiArray.cpp
     clef/xlefiDebug.cpp
     clef/xlefiLayer.cpp
@@ -75,25 +75,29 @@ set(CLEF_SOURCES
     clef/xlefwWriter.cpp
     )
 
-add_library(clef STATIC ${CLEF_SOURCES})
+add_library(clef SHARED ${CLEF_SOURCES})
+target_link_libraries(clef lef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
     install(TARGETS clef DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
-set(LEFZLIB_SOURCES 
+set(LEFZLIB_SOURCES
     lefzlib/lefzlib.cpp
     )
 
-add_library(lefzlib STATIC ${LEFZLIB_SOURCES})
+add_library(lefzlib SHARED ${LEFZLIB_SOURCES})
+target_link_libraries(lefzlib clef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
     install(TARGETS lefzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
+
 
 set(CLEFZLIB_SOURCES 
     clefzlib/clefzlib.c
     )
 
-add_library(clefzlib STATIC ${CLEFZLIB_SOURCES})
+add_library(clefzlib SHARED ${CLEFZLIB_SOURCES})
+target_link_libraries(clefzlib clef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
     install(TARGETS clefzlib DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
@@ -132,3 +136,5 @@ set_target_properties(lefwrite PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURR
 if(INSTALL_LIMBO)
     install(TARGETS lefwrite DESTINATION ${LIMBO_BINDIR})
 endif(INSTALL_LIMBO)
+
+

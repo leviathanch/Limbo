@@ -1,7 +1,5 @@
 include_directories(
     ${PROJECT_SOURCE_DIR}
-    ${PROJECT_SOURCE_DIR}/limbo/thirdparty/lemon
-    ${PROJECT_BINARY_DIR}/limbo/thirdparty/lemon
     )
 set(LIBS lpparser)
 

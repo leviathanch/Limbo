@@ -93,17 +93,17 @@ void lefwSetUnitsCbk (::lefwVoidCbkFnType p0) {
     LefDefParser::lefwSetUnitsCbk((LefDefParser::lefwVoidCbkFnType) p0);
 }
 
-void lefwAntennaInputGateAreaCbk (::lefwVoidCbkFnType p0) {
-    LefDefParser::lefwAntennaInputGateAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
-}
+//void lefwAntennaInputGateAreaCbk (::lefwVoidCbkFnType p0) {
+//    LefDefParser::lefwAntennaInputGateAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
+//}
 
-void lefwAntennaInOutDiffAreaCbk (::lefwVoidCbkFnType p0) {
-    LefDefParser::lefwAntennaInOutDiffAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
-}
+//void lefwAntennaInOutDiffAreaCbk (::lefwVoidCbkFnType p0) {
+//    LefDefParser::lefwAntennaInOutDiffAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
+//}
 
-void lefwAntennaOutputDiffAreaCbk (::lefwVoidCbkFnType p0) {
-    LefDefParser::lefwAntennaOutputDiffAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
-}
+//void lefwAntennaOutputDiffAreaCbk (::lefwVoidCbkFnType p0) {
+//    LefDefParser::lefwAntennaOutputDiffAreaCbk((LefDefParser::lefwVoidCbkFnType) p0);
+//}
 
 void lefwSetPropDefCbk (::lefwVoidCbkFnType p0) {
     LefDefParser::lefwSetPropDefCbk((LefDefParser::lefwVoidCbkFnType) p0);

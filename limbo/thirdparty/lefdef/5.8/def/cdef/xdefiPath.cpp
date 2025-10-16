@@ -125,9 +125,9 @@ int defiPath_getViaBottomMask (const ::defiPath* obj) {
     return ((LefDefParser::defiPath*)obj)->getViaBottomMask();
 }
 
-int defiPath_getRectMask (const ::defiPath* obj) {
-    return ((LefDefParser::defiPath*)obj)->getRectMask();
-}
+//int defiPath_getRectMask (const ::defiPath* obj) {
+//    return ((LefDefParser::defiPath*)obj)->getRectMask();
+//}
 
 void defiPath_print (const ::defiPath* obj, FILE*  fout) {
     ((LefDefParser::defiPath*)obj)->print(fout);

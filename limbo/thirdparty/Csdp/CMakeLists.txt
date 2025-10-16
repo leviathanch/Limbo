@@ -53,7 +53,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # must be added to avoid using unsigned shorts 
 set(CSDP_COMPILE_DEFINITIONS NOSHORTS)
 
-add_library(sdp STATIC ${CSDP_SOURCES})
+add_library(sdp SHARED ${CSDP_SOURCES})
 target_compile_definitions(sdp PRIVATE ${CSDP_COMPILE_DEFINITIONS})
 if(INSTALL_LIMBO)
     install(TARGETS sdp DESTINATION ${LIMBO_LIBDIR})
