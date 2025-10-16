@@ -10,8 +10,9 @@ file(GLOB SOURCES
 file(GLOB HEADERS
     *.h
     )
-add_library(gdsparser STATIC ${SOURCES})
+add_library(gdsparser SHARED ${SOURCES})
 target_compile_options(gdsparser PRIVATE "-DZLIB=1")
+target_link_libraries(gdsparser gzstream)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(gdsparser PRIVATE DEBUG_GDSREADER DEBUG_GDSWRITER)
 endif()

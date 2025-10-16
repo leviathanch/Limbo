@@ -11,7 +11,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}
     )
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-#add_library(defparseradapt_uncombined STATIC ${SOURCES})
+#add_library(defparseradapt_uncombined SHARED ${SOURCES})
 #if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 #    target_compile_definitions(defparseradapt_uncombined PRIVATE DEBUG_DEFPARSER)
 #endif()
@@ -26,7 +26,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 #add_custom_target(defparseradapt ALL 
 #  DEPENDS ${OUTPUT} def)
 
-add_library(defparseradapt STATIC ${SOURCES} $<TARGET_OBJECTS:def_objlib>)
+add_library(defparseradapt SHARED ${SOURCES} $<TARGET_OBJECTS:def_objlib>)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(defparseradapt PRIVATE DEBUG_DEFPARSER)
 endif()

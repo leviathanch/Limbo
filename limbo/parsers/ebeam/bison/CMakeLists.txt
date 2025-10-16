@@ -18,7 +18,7 @@ ADD_FLEX_BISON_DEPENDENCY(EbeamLexer EbeamParser)
 file(GLOB SOURCES
     EbeamDriver.cc
     )
-add_library(ebeamparser ${SOURCES} ${BISON_EbeamParser_OUTPUTS} ${FLEX_EbeamLexer_OUTPUTS})
+add_library(ebeamparser SHARED ${SOURCES} ${BISON_EbeamParser_OUTPUTS} ${FLEX_EbeamLexer_OUTPUTS})
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(ebeamparser PRIVATE DEBUG_EBEAMPARSER)
 endif()

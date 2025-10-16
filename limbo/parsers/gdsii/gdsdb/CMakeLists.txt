@@ -1,8 +1,8 @@
 if(Boost_INCLUDE_DIRS)
     set(INCLUDES ${Boost_INCLUDE_DIRS})
-    set(LIBS ${Boost_LIBRARIES})
+    set(LIBS ${Boost_LIBRARIES} gdsparser)
 else(Boost_INCLUDE_DIRS)
-    set(LIBS Boost::boost)
+    set(LIBS Boost::boost gdsparser)
 endif(Boost_INCLUDE_DIRS)
 include_directories(
     ${PROJECT_SOURCE_DIR}
@@ -17,7 +17,7 @@ file(GLOB SOURCES
 file(GLOB HEADERS
     *.h
     )
-add_library(gdsdb STATIC ${SOURCES})
+add_library(gdsdb SHARED ${SOURCES})
 target_compile_options(gdsdb PRIVATE "-DZLIB=1")
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(gdsdb PRIVATE DEBUG_GDSREADER DEBUG_GDSWRITER)

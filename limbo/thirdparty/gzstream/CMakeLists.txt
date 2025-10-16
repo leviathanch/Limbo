@@ -6,7 +6,8 @@ include_directories(
   )
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-add_library(${PROJECT_NAME} STATIC ${CMAKE_CURRENT_SOURCE_DIR}/gzstream.C)
+add_library(${PROJECT_NAME} SHARED ${CMAKE_CURRENT_SOURCE_DIR}/gzstream.C)
+target_link_libraries(${PROJECT_NAME} ${ZLIB_LIBRARIES})
 
 if(INSTALL_LIMBO)
     install(TARGETS ${PROJECT_NAME} DESTINATION lib)

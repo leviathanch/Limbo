@@ -11,7 +11,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}
     )
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-#add_library(lefparseradapt_uncombined STATIC ${SOURCES})
+#add_library(lefparseradapt_uncombined SHARED ${SOURCES})
 #if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 #    target_compile_definitions(lefparseradapt_uncombined PRIVATE DEBUG_LEFPARSER)
 #endif()
@@ -26,7 +26,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 #add_custom_target(lefparseradapt ALL 
 #  DEPENDS ${OUTPUT} lef)
 
-add_library(lefparseradapt STATIC ${SOURCES} $<TARGET_OBJECTS:lef_objlib>)
+add_library(lefparseradapt SHARED ${SOURCES} $<TARGET_OBJECTS:lef_objlib>)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(lefparseradapt PRIVATE DEBUG_LEFPARSER)
 endif()

@@ -20,8 +20,9 @@ file(GLOB SOURCES
     BookshelfDataBase.cc
     BookshelfDriver.cc
     )
-add_library(bookshelfparser ${SOURCES} ${BISON_BookshelfParser_OUTPUTS} ${FLEX_BookshelfLexer_OUTPUTS})
+add_library(bookshelfparser SHARED ${SOURCES} ${BISON_BookshelfParser_OUTPUTS} ${FLEX_BookshelfLexer_OUTPUTS})
 target_compile_options(bookshelfparser PRIVATE "-DZLIB=1")
+target_link_libraries(bookshelfparser gzstream)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(bookshelfparser PRIVATE DEBUG_BOOKSHELFPARSER)
 endif()
