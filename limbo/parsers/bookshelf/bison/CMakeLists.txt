@@ -28,6 +28,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS bookshelfparser DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS bookshelfparser EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES BookshelfDataBase.h BookshelfDriver.h DESTINATION include/limbo/parsers/bookshelf/bison)
 endif(INSTALL_LIMBO)

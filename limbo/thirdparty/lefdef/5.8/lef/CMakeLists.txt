@@ -51,7 +51,7 @@ add_library(lef_objlib OBJECT ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
 add_library(lef SHARED $<TARGET_OBJECTS:lef_objlib>)
 #add_library(lef SHARED ${LEF_SOURCES} ${BISON_LefParser_OUTPUTS})
 if(INSTALL_LIMBO)
-    install(TARGETS lef DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS lef EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${LEF_HEADERS} DESTINATION include/limbo/thirdparty/lefdef/5.8/lef/lef)
 endif(INSTALL_LIMBO)
 
@@ -78,7 +78,7 @@ set(CLEF_SOURCES
 add_library(clef SHARED ${CLEF_SOURCES})
 target_link_libraries(clef lef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS clef DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS clef EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(LEFZLIB_SOURCES
@@ -88,7 +88,7 @@ set(LEFZLIB_SOURCES
 add_library(lefzlib SHARED ${LEFZLIB_SOURCES})
 target_link_libraries(lefzlib clef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS lefzlib DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS lefzlib EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 
@@ -99,7 +99,7 @@ set(CLEFZLIB_SOURCES
 add_library(clefzlib SHARED ${CLEFZLIB_SOURCES})
 target_link_libraries(clefzlib clef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS clefzlib DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS clefzlib EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(LEFRW_SOURCES 

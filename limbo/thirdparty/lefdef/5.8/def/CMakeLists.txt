@@ -64,7 +64,7 @@ add_library(def_objlib OBJECT ${DEF_SOURCES} ${BISON_DefParser_OUTPUTS})
 add_library(def SHARED SHARED $<TARGET_OBJECTS:def_objlib>)
 #add_library(def SHARED ${DEF_SOURCES} ${BISON_DefParser_OUTPUTS})
 if(INSTALL_LIMBO)
-    install(TARGETS def DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS def EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${DEF_HEADERS} DESTINATION include/limbo/thirdparty/lefdef/5.8/def/def)
 endif(INSTALL_LIMBO)
 
@@ -102,7 +102,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_library(cdef SHARED ${CDEF_SOURCES})
 target_link_libraries(cdef def ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS cdef DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS cdef EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(DEFZLIB_SOURCES 
@@ -112,7 +112,7 @@ set(DEFZLIB_SOURCES
 add_library(defzlib SHARED ${DEFZLIB_SOURCES})
 target_link_libraries(defzlib cdef ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS defzlib DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS defzlib EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(CDEFZLIB_SOURCES 
@@ -122,7 +122,7 @@ set(CDEFZLIB_SOURCES
 add_library(cdefzlib SHARED ${CDEFZLIB_SOURCES})
 target_link_libraries(cdefzlib cdef def ${ZLIB_LIBRARIES})
 if(INSTALL_LIMBO)
-    install(TARGETS cdefzlib DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS cdefzlib EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 set(DEFRW_SOURCES 

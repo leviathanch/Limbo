@@ -24,6 +24,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS gdfparser DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS gdfparser EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES GdfDataBase.h GdfDriver.h DESTINATION include/limbo/parsers/gdf/bison)
 endif(INSTALL_LIMBO)

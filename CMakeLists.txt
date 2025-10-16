@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.7.0)
 
 project(Limbo)
 
+include(GNUInstallDirs)
+
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "Prefix prepended to install directories")
 set(LIMBO_LIBDIR "${LIB_INSTALL_DIR}/limbo")
 set(LIMBO_BINDIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}")
@@ -20,6 +22,10 @@ endif(NOT CMAKE_CXX_ABI)
 message(STATUS "CMAKE_CXX_ABI: _GLIBCXX_USE_CXX11_ABI=${CMAKE_CXX_ABI}")
 add_definitions(-D_GLIBCXX_USE_CXX11_ABI=${CMAKE_CXX_ABI})
 
+set(CMAKE_MODULES_INSTALL_DIR "cmake" CACHE PATH "Where to install the CMake modules")
+
+message(STATUS "CMAKE_INSTALL_DOCDIR: ${CMAKE_INSTALL_DOCDIR}")
+message(STATUS "CMAKE_MODULES_INSTALL_DIR: ${CMAKE_MODULES_INSTALL_DIR}")
 
 # packages like Csdp and SDPColoringCsdp are dependent to OPENBLAS
 option(OPENBLAS "Choose to enable OpenBLAS or not, ON|OFF" OFF)
@@ -141,3 +147,14 @@ if (GENERATE_DOCS)
         add_subdirectory(docs)
     endif(DOXYGEN_FOUND)
 endif(GENERATE_DOCS)
+
+install(
+    EXPORT LimboTargets
+    DESTINATION ${CMAKE_MODULES_INSTALL_DIR}
+    NAMESPACE Limbo::
+)
+
+install(
+    FILES cmake/LimboConfig.cmake
+    DESTINATION ${CMAKE_MODULES_INSTALL_DIR}
+)

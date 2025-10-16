@@ -24,6 +24,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS lpparser DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS lpparser EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES LpDataBase.h LpDriver.h DESTINATION include/limbo/parsers/lp/bison)
 endif(INSTALL_LIMBO)

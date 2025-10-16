@@ -33,6 +33,6 @@ endif()
 
 if(INSTALL_LIMBO)
   #install(FILES ${OUTPUT} DESTINATION ${LIMBO_LIBDIR})
-    install(TARGETS defparseradapt DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS defparseradapt EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES DefDataBase.h DefDriver.h DESTINATION include/limbo/parsers/def/adapt)
 endif(INSTALL_LIMBO)

@@ -3,7 +3,7 @@ include_directories(
     )
 add_library(programoptions ProgramOptions.cpp)
 if(INSTALL_LIMBO)
-    install(TARGETS programoptions DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS programoptions EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
 endif(INSTALL_LIMBO)
 
 file(GLOB SOURCES

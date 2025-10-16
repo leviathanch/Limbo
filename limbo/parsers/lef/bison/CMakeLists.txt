@@ -29,6 +29,6 @@ file(GLOB HEADERS
     *.hpp
     )
 if(INSTALL_LIMBO)
-    install(TARGETS lefparser DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS lefparser EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES LefDataBase.h LefDriver.h ${HEADERS} DESTINATION include/limbo/parsers/lef/bison)
 endif(INSTALL_LIMBO)

@@ -10,6 +10,6 @@ add_library(${PROJECT_NAME} SHARED ${CMAKE_CURRENT_SOURCE_DIR}/gzstream.C)
 target_link_libraries(${PROJECT_NAME} ${ZLIB_LIBRARIES})
 
 if(INSTALL_LIMBO)
-    install(TARGETS ${PROJECT_NAME} DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS ${PROJECT_NAME} EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/gzstream.h DESTINATION include/limbo/thirdparty/${PROJECT_NAME})
 endif(INSTALL_LIMBO)

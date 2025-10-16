@@ -24,6 +24,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 if(INSTALL_LIMBO)
-    install(TARGETS ebeamparser DESTINATION ${LIMBO_LIBDIR})
+    install(TARGETS ebeamparser EXPORT LimboTargets DESTINATION ${LIMBO_LIBDIR})
     install(FILES EbeamDataBase.h EbeamDriver.h DESTINATION include/limbo/parsers/ebeam/bison)
 endif(INSTALL_LIMBO)
